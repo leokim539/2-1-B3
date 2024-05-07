@@ -62,11 +62,48 @@ public class FirstPersonAudio : MonoBehaviour
 
     void OnDisable() => UnsubscribeToEvents();
 
+    // void FixedUpdate()
+    // {
+    //     // Play moving audio if the character is moving and on the ground.
+    //     float velocity = Vector3.Distance(CurrentCharacterPosition, lastCharacterPosition);
+    //     if (velocity >= velocityThreshold && groundCheck && groundCheck.isGrounded)
+    //     {
+    //         if (crouch && crouch.IsCrouched)
+    //         {
+    //             SetPlayingMovingAudio(crouchedAudio);
+    //         }
+    //         else if (character.IsRunning)
+    //         {
+    //             SetPlayingMovingAudio(runningAudio);
+    //         }
+    //         else
+    //         {
+    //             SetPlayingMovingAudio(stepAudio);
+    //         }
+    //     }
+    //     else
+    //     {
+    //         SetPlayingMovingAudio(null);
+    //     }
+
+    //     // Remember lastCharacterPosition.
+    //     lastCharacterPosition = CurrentCharacterPosition;
+    // }
+    
     void FixedUpdate()
     {
-        // Play moving audio if the character is moving and on the ground.
+        // 플레이어의 실제 움직임을 체크하기 위한 변수 추가
+        bool isPlayerMoving = false;
+
+        // 플레이어의 입력을 체크하는 코드 (가상 코드)
+        // 예: 플레이어가 걷기, 뛰기, 앉기 등의 입력을 했는지 체크
+        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            isPlayerMoving = true;
+        }
+
         float velocity = Vector3.Distance(CurrentCharacterPosition, lastCharacterPosition);
-        if (velocity >= velocityThreshold && groundCheck && groundCheck.isGrounded)
+        if (velocity >= velocityThreshold && groundCheck && groundCheck.isGrounded && isPlayerMoving)
         {
             if (crouch && crouch.IsCrouched)
             {
