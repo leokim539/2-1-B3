@@ -353,12 +353,16 @@
 "Assets/Mini First Person Controller/Scripts/Components/GroundCheck.cs"
 "Assets/Mini First Person Controller/Scripts/Components/Jump.cs"
 "Assets/Mini First Person Controller/Scripts/Components/Zoom.cs"
+"Assets/Mini First Person Controller/Scripts/Door.cs"
+"Assets/Mini First Person Controller/Scripts/DoorTrigger.cs"
 "Assets/Mini First Person Controller/Scripts/FirstPersonLook.cs"
 "Assets/Mini First Person Controller/Scripts/FirstPersonMovement.cs"
 "Assets/Mini First Person Controller/Scripts/JumpPad.cs"
 "Assets/Mini First Person Controller/Scripts/MoveCube.cs"
+"Assets/Mini First Person Controller/Scripts/MovingPlatform.cs"
 "Assets/Mini First Person Controller/Scripts/PlatformAttach.cs"
 "Assets/Mini First Person Controller/Scripts/PlayerInteraction.cs"
+"Assets/Mini First Person Controller/Scripts/PlayerJumpAdjuster.cs"
 -langversion:9.0
 
 /deterministic

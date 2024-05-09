@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Box
   - Button
+  - MovingPlatform
   layers:
   - Default
   - TransparentFX
