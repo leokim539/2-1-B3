@@ -3,6 +3,7 @@ using UnityEngine;
 public class JumpPad : MonoBehaviour
 {
     public float jumpForce = 10f; // 점프대의 힘
+    private AudioSource audioSource;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -16,5 +17,9 @@ public class JumpPad : MonoBehaviour
                 playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
             }
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        audioSource.Play();
     }
 }
