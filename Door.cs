@@ -4,9 +4,19 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    public AudioSource OpenDoorSource;
+    public AudioSource CloseDoorSource;
+
     public Vector3 initialPosition;
     public Vector3 targetPosition;
     private bool isColliding = false; 
+
+    void Start()
+    {
+        OpenDoorSource = GetComponent<AudioSource>();
+        CloseDoorSource = GetComponent<AudioSource>();
+    }
+
     // 문을 여는  메서드
     public void OpenDoor(float speed)
     {
@@ -25,13 +35,16 @@ public class Door : MonoBehaviour
 
     private IEnumerator MoveDoor(Vector3 newPosition, float speed)
     {
+        //yield return new WaitForSeconds(0.2f);
         while (transform.position != newPosition)
         {
             if (!isColliding) // 만약 isCollding 이 false이라면 코루틴 정지 
         {
+            OpenDoorSource.Stop();
             yield break;
         }
             transform.position = Vector3.MoveTowards(transform.position, newPosition, speed * Time.deltaTime);
+            OpenDoorSource.Play();
             yield return null;
         }
     }
@@ -42,9 +55,11 @@ public class Door : MonoBehaviour
         {
             if (isColliding) // 만약 isCollding 이 true이라면 코루틴 정지 
         {
+            CloseDoorSource.Stop();
             yield break;
         }
             transform.position = Vector3.MoveTowards(transform.position, initialPosition, speed * Time.deltaTime);
+            CloseDoorSource.Play();
             yield return null;
         }
     }
