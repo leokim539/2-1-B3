@@ -6,7 +6,7 @@ using Photon.Realtime;
 using Cinemachine;
 
 
-public class Movement : MonoBehaviourPunCallbacks, IPunObservable//공부*****
+public class Movement : MonoBehaviourPunCallbacks, IPunObservable//시험공부*****
 {
     // 수신된 위치와 회전값을 저장할 변수
     private Vector3 receivePos;
